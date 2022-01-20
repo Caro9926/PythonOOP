@@ -5,7 +5,7 @@ class CuentaBancaria:
         self.tasa_interés= tasa_interés
         self.balance_cuenta = balance
         self.descuento = 5
-        CuentaBancaria.cuentas.append(self)
+        CuentaBancaria.todas_las_cuentas.append(self)
     
     def hacer_depósito(self, amount):	
         self.balance_cuenta += amount	
@@ -33,15 +33,13 @@ class CuentaBancaria:
                 return self 
 
   
-#@classmethod
-#def todos_los_balances(cls):
-        #for cuenta in cls.todas_las_cuentas:
-            #cls.cuentas = 
-            #p#rint(f"Estas son las cuentas{cuentas}"
-        #return 
+    @classmethod
+    def todos_los_balances(cls):
+                for cuenta in cls.todas_las_cuentas:
+                    cuenta.mostrar_balance()
+            
 
-
-           
+          
     
 
 acc1 = CuentaBancaria(tasa_interés=0.05)
@@ -50,4 +48,4 @@ acc2 = CuentaBancaria(tasa_interés=0.05)
 acc1.hacer_depósito(100).hacer_depósito(200).hacer_depósito(300).hacer_retiro(50).mostrar_balance().generar_interés()
 acc2.hacer_depósito(50).hacer_depósito(100).hacer_retiro(180).mostrar_balance().generar_interés()
 
-print(classmethod.todos_los_balances)
+CuentaBancaria.todos_los_balances()
